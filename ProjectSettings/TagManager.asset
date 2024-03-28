@@ -7,6 +7,7 @@ TagManager:
   - Terrain
   - Sortie1
   - Sortie2
+  - Boost
   layers:
   - Default
   - TransparentFX

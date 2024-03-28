@@ -76,6 +76,8 @@ namespace KartGame.KartSystems
         public float AirPercent    { get; private set; }
         public float GroundPercent { get; private set; }
 
+        
+
         public ArcadeKart.Stats baseStats = new ArcadeKart.Stats
         {
             TopSpeed            = 10f,
@@ -89,6 +91,8 @@ namespace KartGame.KartSystems
             Grip                = .95f,
             AddedGravity        = 1f,
         };
+
+        public float TopSpeed { get; set; }
 
         [Header("Vehicle Visual")] 
         public List<GameObject> m_VisualWheels;
@@ -596,5 +600,35 @@ namespace KartGame.KartSystems
 
             ActivateDriftVFX(IsDrifting && GroundPercent > 0.0f);
         }
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Boost"))
+            {
+
+                //augmenter topspeed
+                // Créez un nouveau power-up avec les valeurs appropriées
+                StatPowerup newPowerup = new StatPowerup();
+                newPowerup.modifiers = new ArcadeKart.Stats
+                {
+                    TopSpeed = 2f, // Remplacez 5f par la valeur de l'augmentation de la vitesse souhaitée
+                                   // Ajustez d'autres valeurs de Stats au besoin
+                };
+                newPowerup.PowerUpID = "SpeedBoost"; // ID du power-up
+                newPowerup.ElapsedTime = 0f; // Initialisez le temps écoulé à zéro
+                newPowerup.MaxTime = 10f; // Durée maximale du power-up
+
+                // Ajoutez le power-up à la liste des power-ups actifs
+                AddPowerup(newPowerup);
+                Debug.Log("TopSpeed increased to: " + TopSpeed);
+
+                other.gameObject.SetActive(false);
+
+
+
+            }
+
+        }
     }
+
+
 }
