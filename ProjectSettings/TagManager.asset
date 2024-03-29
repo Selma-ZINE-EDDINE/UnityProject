@@ -8,6 +8,7 @@ TagManager:
   - Sortie1
   - Sortie2
   - Boost
+  - Malus
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.VFX;
+using System.Collections;
 
 namespace KartGame.KartSystems
 {
@@ -600,6 +601,38 @@ namespace KartGame.KartSystems
 
             ActivateDriftVFX(IsDrifting && GroundPercent > 0.0f);
         }
+
+        /*void etourdis()
+        {
+            float rotationDuration = 3f; // Durée de rotation en secondes
+            float rotationSpeed = 360f / rotationDuration; // Vitesse de rotation en degrés par seconde
+            float startTime = Time.time; // Heure de départ de la rotation
+
+            while (Time.time - startTime < rotationDuration)
+            {
+                float rotationAngle = rotationSpeed * Time.deltaTime; // Angle de rotation pour cette frame
+                transform.Rotate(new Vector3(0, rotationAngle, 0)); // Rotation de l'objet
+            }
+        }*/
+        /*void Start()
+        {
+            StartCoroutine(EtourdisCoroutine());
+        }*/
+
+        IEnumerator EtourdisCoroutine(Vector3 initialPosition)
+        {
+            float totalRotationAngle = 380 * 2; // Angle total de rotation (2 fois 380 degrés)
+            float rotationSpeed = totalRotationAngle / 3f; // Vitesse de rotation en degrés par seconde
+            float startTime = Time.time; // Heure de départ de la rotation
+
+            while (Time.time - startTime < 3f)
+            {
+                //float rotationAngle = rotationSpeed * Time.deltaTime; // Angle de rotation pour cette frame
+                //transform.Rotate(new Vector3(0, rotationAngle, 0)); // Rotation de l'objet
+                transform.position = initialPosition; // Réaffectation de la position initiale à chaque frame pour figer la position
+                yield return null; // Attend la prochaine frame
+            }
+        }
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Boost"))
@@ -625,6 +658,48 @@ namespace KartGame.KartSystems
 
 
 
+            }
+
+            else if (other.gameObject.CompareTag("Malus"))
+            {
+                Vector3 initialPosition = transform.position;
+                StartCoroutine(EtourdisCoroutine(initialPosition));
+                //augmenter topspeed
+                // Créez un nouveau power-up avec les valeurs appropriées
+                StatPowerup newPowerup = new StatPowerup();
+                newPowerup.modifiers = new ArcadeKart.Stats
+                {
+                    TopSpeed = 0f, // Remplacez 5f par la valeur de l'augmentation de la vitesse souhaitée
+                                   // Ajustez d'autres valeurs de Stats au besoin
+                };
+                newPowerup.PowerUpID = "SpeedBoost"; // ID du power-up
+                newPowerup.ElapsedTime = 0f; // Initialisez le temps écoulé à zéro
+                newPowerup.MaxTime = 10f; // Durée maximale du power-up
+
+                // Ajoutez le power-up à la liste des power-ups actifs
+                AddPowerup(newPowerup);
+                Debug.Log("TopSpeed increased to: " + TopSpeed);
+
+                other.gameObject.SetActive(false);
+
+
+
+            }
+
+            else if (other.gameObject.CompareTag("Sortie1")) //si la voiture sort de la route
+            {
+                Vector3 initialPosition = transform.position;
+                StartCoroutine(EtourdisCoroutine(initialPosition));
+                transform.Rotate(0, 188, 0);
+                transform.position = new Vector3(-83.98f, 0.4f, -35.87f);
+
+            }
+            else if (other.gameObject.CompareTag("Sortie2"))
+            {
+                Vector3 initialPosition = transform.position;
+                StartCoroutine(EtourdisCoroutine(initialPosition));
+                transform.Rotate(0, 84.955f, 0);
+                transform.position = new Vector3(-25.7f, 0.4f, -43.3f);
             }
 
         }
