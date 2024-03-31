@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class ArcadeKartPowerup : MonoBehaviour {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
 
     public ArcadeKart.StatPowerup boostStats = new ArcadeKart.StatPowerup
     {
@@ -37,7 +41,10 @@ public class ArcadeKartPowerup : MonoBehaviour {
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
     private void OnTriggerEnter(Collider other)
     {
         if (isCoolingDown) return;
@@ -56,7 +63,16 @@ public class ArcadeKartPowerup : MonoBehaviour {
 
                 if (disableGameObjectWhenActivated) this.gameObject.SetActive(false);
             }
+<<<<<<< HEAD
         }
     }
 
+=======
+
+        }
+    }
+
+
+
+>>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
 }
