@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Terrain
+  - Sortie1
+  - Sortie2
+  - Boost
+  - Malus
+>>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
   layers:
   - Default
   - TransparentFX

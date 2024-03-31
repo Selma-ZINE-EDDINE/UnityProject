@@ -2,11 +2,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ArcadeKartPowerup : MonoBehaviour {
-<<<<<<< HEAD
-=======
-    
->>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
+public class ArcadeKartPowerup : MonoBehaviour
+{
+
 
     public ArcadeKart.StatPowerup boostStats = new ArcadeKart.StatPowerup
     {
@@ -30,9 +28,11 @@ public class ArcadeKartPowerup : MonoBehaviour {
 
     private void Update()
     {
-        if (isCoolingDown) { 
+        if (isCoolingDown)
+        {
 
-            if (Time.time - lastActivatedTimestamp > cooldown) {
+            if (Time.time - lastActivatedTimestamp > cooldown)
+            {
                 //finished cooldown!
                 isCoolingDown = false;
                 onPowerupFinishCooldown.Invoke();
@@ -41,21 +41,18 @@ public class ArcadeKartPowerup : MonoBehaviour {
         }
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
     private void OnTriggerEnter(Collider other)
     {
         if (isCoolingDown) return;
 
         var rb = other.attachedRigidbody;
-        if (rb) {
+        if (rb)
+        {
 
             var kart = rb.GetComponent<ArcadeKart>();
 
             if (kart)
-            { 
+            {
                 lastActivatedTimestamp = Time.time;
                 kart.AddPowerup(this.boostStats);
                 onPowerupActivated.Invoke();
@@ -63,16 +60,10 @@ public class ArcadeKartPowerup : MonoBehaviour {
 
                 if (disableGameObjectWhenActivated) this.gameObject.SetActive(false);
             }
-<<<<<<< HEAD
-        }
-    }
-
-=======
 
         }
     }
 
 
 
->>>>>>> f5027df70882d1fbb5aa5e745a4a2bf944d24595
 }

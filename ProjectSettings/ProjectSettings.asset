@@ -732,11 +732,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0253d054-b377-4a63-b68b-2cff699846df
+  cloudProjectId: 5e6f8054-4e2d-4281-b956-f9278454b22a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: microgame2
-  organizationId: selma_znd
+  projectName: UnityProject
+  organizationId: ich_rak
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
