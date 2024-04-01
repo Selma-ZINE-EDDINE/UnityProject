@@ -8970,7 +8970,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       value: 18.33
+=======
+      value: 18.31
+>>>>>>> Stashed changes
+=======
+      value: 18.31
+>>>>>>> Stashed changes
+=======
+      value: 18.31
+>>>>>>> Stashed changes
 =======
       value: 18.31
 >>>>>>> Stashed changes
@@ -12484,6 +12496,15 @@ Transform:
   m_LocalRotation: {x: 0.09761156, y: -1e-45, z: 0, w: 0.9952246}
   m_LocalPosition: {x: 18.31, y: 7.6, z: -9.66}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -13412,7 +13433,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       value: 18.33
+=======
+      value: 18.31
+>>>>>>> Stashed changes
+=======
+      value: 18.31
+>>>>>>> Stashed changes
+=======
+      value: 18.31
+>>>>>>> Stashed changes
 =======
       value: 18.31
 >>>>>>> Stashed changes
@@ -22829,7 +22862,19 @@ SceneRoots:
   - {fileID: 1304724375}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1968703961}
+=======
+  - {fileID: 1062450627}
+>>>>>>> Stashed changes
+=======
+  - {fileID: 1062450627}
+>>>>>>> Stashed changes
+=======
+  - {fileID: 1062450627}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1062450627}
 >>>>>>> Stashed changes
