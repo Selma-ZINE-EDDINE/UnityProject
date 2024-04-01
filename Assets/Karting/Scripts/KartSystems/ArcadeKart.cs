@@ -340,6 +340,10 @@ namespace KartGame.KartSystems
             }
         }
 
+        void ApplyRadialBlur(float speed)
+        {
+
+        }
         void TickPowerups()
         {
             // remove all elapsed powerups
@@ -362,6 +366,10 @@ namespace KartGame.KartSystems
 
             // add powerups to our final stats
             m_FinalStats = baseStats + powerups;
+            if (powerups.TopSpeed > 0)
+            {
+                ApplyRadialBlur(powerups.TopSpeed);
+            }
 
             // clamp values in finalstats
             m_FinalStats.Grip = Mathf.Clamp(m_FinalStats.Grip, 0, 1);
