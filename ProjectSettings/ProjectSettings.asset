@@ -732,11 +732,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5e6f8054-4e2d-4281-b956-f9278454b22a
+  cloudProjectId: 39c6731e-6cdd-4471-8a4f-9dd6851ec473
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: UnityProject
-  organizationId: ich_rak
+  organizationId: selma_znd
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
