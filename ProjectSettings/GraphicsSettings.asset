@@ -62,15 +62,7 @@ GraphicsSettings:
   m_LightsUseColorTemperature: 0
   m_DefaultRenderingLayerMask: 1
   m_LogWhenShaderIsCompiled: 0
-<<<<<<< Updated upstream
-  m_SRPDefaultSettings:
-    UnityEngine.Rendering.HighDefinition.HDRenderPipeline: {fileID: 11400000, guid: 06edf9906379278428317f6dce1995b7,
-      type: 2}
-    UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 29f8ce6f5314740468ba394e76080eb9,
-      type: 2}
-=======
   m_SRPDefaultSettings: {}
->>>>>>> Stashed changes
   m_LightProbeOutsideHullStrategy: 1
   m_CameraRelativeLightCulling: 0
   m_CameraRelativeShadowCulling: 0
