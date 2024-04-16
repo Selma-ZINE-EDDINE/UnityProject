@@ -709,7 +709,13 @@ namespace KartGame.KartSystems
                 transform.Rotate(0, 84.955f, 0);
                 transform.position = new Vector3(-25.7f, 0.4f, -43.3f);
             }
-
+            else if (other.gameObject.CompareTag("Sortie3"))
+            {
+                Vector3 initialPosition = transform.position;
+                StartCoroutine(EtourdisCoroutine(initialPosition));
+                transform.Rotate(0, 0, 0);
+                transform.position = new Vector3(18.33f, 4.6f, -3.66f);
+            }
         }
     }
 
