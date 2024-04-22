@@ -10,6 +10,7 @@ TagManager:
   - Malus
   - Boost
   - Sortie3
+  - LastTag
   layers:
   - Default
   - TransparentFX
