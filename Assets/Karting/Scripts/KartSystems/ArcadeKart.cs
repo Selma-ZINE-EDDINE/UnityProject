@@ -72,7 +72,7 @@ namespace KartGame.KartSystems
             }
         }
 
-        public Rigidbody Rigidbody { get; private set; }
+        public Rigidbody Rigidbody { get; set; }
         public InputData Input { get; private set; }
         public float AirPercent { get; private set; }
         public float GroundPercent { get; private set; }
@@ -610,36 +610,23 @@ namespace KartGame.KartSystems
             ActivateDriftVFX(IsDrifting && GroundPercent > 0.0f);
         }
 
-        /*void etourdis()
-        {
-            float rotationDuration = 3f; // Durée de rotation en secondes
-            float rotationSpeed = 360f / rotationDuration; // Vitesse de rotation en degrés par seconde
-            float startTime = Time.time; // Heure de départ de la rotation
 
-            while (Time.time - startTime < rotationDuration)
-            {
-                float rotationAngle = rotationSpeed * Time.deltaTime; // Angle de rotation pour cette frame
-                transform.Rotate(new Vector3(0, rotationAngle, 0)); // Rotation de l'objet
-            }
-        }*/
-        /*void Start()
+        IEnumerator EtourdisCoroutine()
         {
-            StartCoroutine(EtourdisCoroutine());
-        }*/
-
-        IEnumerator EtourdisCoroutine(Vector3 initialPosition)
-        {
-            float totalRotationAngle = 380 * 2; // Angle total de rotation (2 fois 380 degrés)
+            float totalRotationAngle = 360 * 2; // Angle total de rotation (2 fois 380 degrés)
             float rotationSpeed = totalRotationAngle / 3f; // Vitesse de rotation en degrés par seconde
             float startTime = Time.time; // Heure de départ de la rotation
 
             while (Time.time - startTime < 3f)
             {
-                //float rotationAngle = rotationSpeed * Time.deltaTime; // Angle de rotation pour cette frame
-                //transform.Rotate(new Vector3(0, rotationAngle, 0)); // Rotation de l'objet
-                transform.position = initialPosition; // Réaffectation de la position initiale à chaque frame pour figer la position
+                float rotationAngle = rotationSpeed * Time.time; // Angle de rotation pour cette frame
+                transform.Rotate(new Vector3(0, rotationAngle, 0)); // Rotation de l'objet
+                SetCanMove(false);
                 yield return null; // Attend la prochaine frame
             }
+            //m_CanMove = true;
+            if(Time.time - startTime>=3f) SetCanMove(true);
+
         }
         void OnTriggerEnter(Collider other)
         {
@@ -670,9 +657,12 @@ namespace KartGame.KartSystems
 
             else if (other.gameObject.CompareTag("Malus"))
             {
-                Vector3 initialPosition = transform.position;
-                StartCoroutine(EtourdisCoroutine(initialPosition));
-                //augmenter topspeed
+                float startTime = Time.time; // Heure de départ de la rotation
+
+
+                //Vector3 initialPosition = transform.position;
+                StartCoroutine(EtourdisCoroutine());
+                //retire les boosts 
                 // Créez un nouveau power-up avec les valeurs appropriées
                 StatPowerup newPowerup = new StatPowerup();
                 newPowerup.modifiers = new ArcadeKart.Stats
@@ -697,7 +687,7 @@ namespace KartGame.KartSystems
             else if (other.gameObject.CompareTag("Sortie1")) //si la voiture sort de la route
             {
                 Vector3 initialPosition = transform.position;
-                StartCoroutine(EtourdisCoroutine(initialPosition));
+                StartCoroutine(EtourdisCoroutine());
                 transform.Rotate(0, 188, 0);
                 transform.position = new Vector3(-83.98f, 0.4f, -35.87f);
 
@@ -705,14 +695,14 @@ namespace KartGame.KartSystems
             else if (other.gameObject.CompareTag("Sortie2"))
             {
                 Vector3 initialPosition = transform.position;
-                StartCoroutine(EtourdisCoroutine(initialPosition));
+                StartCoroutine(EtourdisCoroutine());
                 transform.Rotate(0, 84.955f, 0);
                 transform.position = new Vector3(-25.7f, 0.4f, -43.3f);
             }
             else if (other.gameObject.CompareTag("Sortie3"))
             {
                 Vector3 initialPosition = transform.position;
-                StartCoroutine(EtourdisCoroutine(initialPosition));
+                StartCoroutine(EtourdisCoroutine());
                 transform.Rotate(0, 0, 0);
                 transform.position = new Vector3(18.33f, 4.6f, -3.66f);
             }
