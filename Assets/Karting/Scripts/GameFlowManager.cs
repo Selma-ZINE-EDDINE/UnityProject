@@ -23,6 +23,8 @@ public class GameFlowManager : MonoBehaviour
     public float delayBeforeWinMessage = 2f;
     [Tooltip("Sound played on win")]
     public AudioClip victorySound;
+    // Number of the player winning
+    public int winningPlayerNumber;
 
     [Tooltip("Prefab for the win game message")]
     public DisplayMessage winDisplayMessage;
@@ -162,6 +164,19 @@ public class GameFlowManager : MonoBehaviour
         {
             m_SceneToLoad = winSceneName;
             m_TimeLoadEndGameScene = Time.time + endSceneLoadDelay + delayBeforeFadeToBlack;
+
+            /*
+            // Trouver le joueur avec le rang le plus élevé (premier à traverser la ligne d'arrivée)
+            int highestRank = int.MaxValue; // Initialiser à la plus haute valeur entière possible pour la comparaison
+            foreach (ArcadeKart kart in karts)
+            {
+                if (kart.Rank < highestRank) // Si le rang du kart est plus bas que le rang le plus élevé trouvé jusqu'à présent
+                {
+                    highestRank = kart.Rank; // Mettre à jour le rang le plus élevé
+                    winningPlayerNumber = kart.playerNumber; // Attribuer le numéro du joueur correspondant
+                }
+            }
+            */
 
             // play a sound on win
             var audioSource = gameObject.AddComponent<AudioSource>();
