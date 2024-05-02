@@ -11,6 +11,8 @@ TagManager:
   - Boost
   - Sortie3
   - LastTag
+  - Player2
+  - winner
   layers:
   - Default
   - TransparentFX
