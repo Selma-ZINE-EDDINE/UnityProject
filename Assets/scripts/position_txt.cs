@@ -17,11 +17,11 @@ public class position_txt : MonoBehaviour
         if (WinnerPlayer == 1)
         {
             //Vector3 p = new Vector3(-232.4f, 147.34f, 0);
-            transform.position = new Vector3(220f, 400f, 0);
+            transform.position = new Vector3(580f, 750f, 0);
         }
         if (WinnerPlayer == 2)
         {
-            Vector3 p = new Vector3(620f, 400f, 0);
+            Vector3 p = new Vector3(1300f, 750f, 0);
             this.transform.position = p;
         }
     }
